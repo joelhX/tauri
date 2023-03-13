@@ -12,8 +12,8 @@
     <script>
         const { invoke } = window.__TAURI__.tauri
         var canvas = document.getElementById("canvas");
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth-2;
+        canvas.height = window.innerHeight-2;
 
         // get references to the canvas and context
 
@@ -72,7 +72,7 @@
             var width = Math.abs(mouseX - startX);
             var height = Math.abs(mouseY - startY);
             if (width > 4 && height > 4) {
-                invoke('get_area', { x: X+2, y: Y+2, w: width-4, h: height-4 }).then((response) => console.log(response))
+                invoke('get_area', { x: X+2, y: Y+2, w: width-2, h: height-2 }).then((response) => console.log(response))
             }
 
             // the drag is over, clear the dragging flag
